@@ -47,4 +47,8 @@ public class UserService implements UserDetailsService {
 //todo: send email
         return token;
     }
+
+    public int enableAccount(String email) {
+        return userRepository.updateAccountStatus(email);
+    }
 }
