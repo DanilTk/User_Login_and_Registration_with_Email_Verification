@@ -34,10 +34,10 @@ public class User implements UserDetails {
     private String password;
 
     @Column(name = "enabled")
-    private Boolean isEnabled;
+    private Boolean isEnabled = false;
 
     @Column(name = "locked")
-    private Boolean isLocked;
+    private Boolean isLocked = false;
 
     @Column(name = "user_role")
     @Enumerated(EnumType.STRING)
