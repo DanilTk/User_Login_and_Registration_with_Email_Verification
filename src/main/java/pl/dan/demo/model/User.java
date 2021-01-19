@@ -14,24 +14,40 @@ import java.util.Collections;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
+@Table(name = "user")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userName;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "enabled")
     private Boolean isEnabled;
+
+    @Column(name = "locked")
     private Boolean isLocked;
+
+    @Column(name = "user_role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    public User(String userName, String email, String password, Boolean isEnabled, Boolean isLocked, UserRole role) {
-        this.userName = userName;
+    public User(String firstName, String lastName, String email, String password, UserRole role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.isEnabled = isEnabled;
-        this.isLocked = isLocked;
         this.role = role;
     }
 
@@ -48,7 +64,11 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     @Override

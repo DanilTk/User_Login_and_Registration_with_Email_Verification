@@ -2,3 +2,13 @@ server:
   error:
     include-message: always
     include-binding-errors: always
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/app_user?serverTimezone=UTC&useLegacyDatetimeCode=false
+    driver-class-name:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.dan.demo.model.RegistrationForm;
+import pl.dan.demo.model.UserRegistrationForm;
 import pl.dan.demo.service.RegistrationService;
 
 @RestController
@@ -15,7 +15,7 @@ public class RegistrationController {
     private final RegistrationService registrationService;
 
     @PostMapping
-    public String registerUser(@RequestBody RegistrationForm form) {
+    public String registerUser(@RequestBody UserRegistrationForm form) {
         return registrationService.register(form);
     }
 }
