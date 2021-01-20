@@ -29,6 +29,8 @@ public class UserService implements UserDetailsService {
     public String signUpUser(User user) {
 
         if (userRepository.findUserByEmail(user.getEmail()).isPresent()) {
+            //todo: if user not yet confirmed - send email again
+            // TODO: 20-Jan-21 check credentials to be identical 
             throw new IllegalStateException("User email already exists");
         }
 
